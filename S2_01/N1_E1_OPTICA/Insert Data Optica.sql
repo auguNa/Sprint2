@@ -2,10 +2,10 @@
 INSERT INTO optica_store.address (address_id, street, number, suite, entrance, post_code, city, country) 
 VALUES 
 
-	(1,'Calle Ejemplo 1', '1', '1A', 'A', '28001', 'Madrid',  'España'),
-    (2,'Calle de la Paz', '2', NULL, NULL, '46002', 'Valencia',  'España'),
-    (3,'Calle Mayor', '3', '2', 'B', '50001', 'Zaragoza',  'España'),
-    (4,'Calle Real', '4', NULL, NULL, '15001', 'A Coruña',  'España');
+	(1,'Calle Anna 1', '1', '72', NULL, '35800', 'Tarragona',  'España'),
+    (2,'Calle Roja', '2', NULL, NULL, '38111', 'Vilafranca',  'España'),
+    (3,'Calle Principal', '3', '2', 'B', '50001', 'Burgos',  'España'),
+    (4,'Calle St Maria', '4', NULL, NULL, '15001', 'Barcelona',  'España');
     
     -- Inserting data into the `customer` table
 INSERT INTO optica_store.customer (id_customer, address_address_id, id_customer_recomended, name, phone, email, created_date) 
