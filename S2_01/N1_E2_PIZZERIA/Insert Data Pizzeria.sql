@@ -1,38 +1,37 @@
--- Insert data into the province table
-INSERT INTO `pizzeria`.`province` (`province_name`) VALUES ('ProvinceA'), ('ProvinceB');
+-- Inserting into `province`
+INSERT INTO `pizza_shop`.`province` (`id_province`, `name`) VALUES (1, 'Province A');
 
--- Insert data into the locality table
-INSERT INTO `pizzeria`.`locality` (`locality_name`, `province_province_id`) VALUES ('City1', 1), ('City2', 2);
+-- Inserting into `city`
+INSERT INTO `pizza_shop`.`city` (`id_city`, `name`, `id_province`) VALUES (1, 'City A', 1);
 
--- Insert data into the store table
-INSERT INTO `pizzeria`.`store` (`store_address`, `store_postal_code`, `locality_locality_id`, `locality_province_province_id`) 
-VALUES ('123 Main St', '12345', 1, 1), ('456 Second St', '67890', 2, 2);
+-- Inserting into `address`
+INSERT INTO `pizza_shop`.`address` (`id_address`, `street`, `number`, `flat`, `door`, `post_code`, `id_city`) VALUES 
+(1, 'Main St', '123', NULL, NULL, '12345', 1);
 
--- Insert data into the customer table ensuring unique composite keys
-INSERT INTO `pizzeria`.`customer` (`customer_id`, `customer_name`, `customer_surname`, `customer_address`, `customer_postal_code`, `customer_phone`, `locality_locality_id`, `locality_province_province_id`) 
-VALUES (1, 'John', 'Doe', '789 Third St', 12345, '555-1234', 1, 1), 
-       (2, 'Jane', 'Smith', '101 First St', 67890, '555-5678', 2, 2);
+-- Inserting into `store`
+INSERT INTO `pizza_shop`.`store` (`id_store`, `name`, `phone`, `id_address`) VALUES 
+(1, 'Store A', '1234567890', 1);
 
--- Insert data into the delivery table
-INSERT INTO `pizzeria`.`delivery` (`delivery_date_time`) VALUES (NOW()), (NOW());
+-- Inserting into `employee`
+INSERT INTO `pizza_shop`.`employee` (`id_employee`, `id_store`, `name`, `surname`, `nif`, `phone`, `role`, `id_address`) VALUES 
+(1, 1, 'John', 'Doe', 'NIF123456', '1234567890', 'chef', 1);
 
--- Insert data into the employee table ensuring unique composite keys
-INSERT INTO `pizzeria`.`employee` (`employee_name`, `employee_surname`, `employee_nif`, `employee_phone`, `employee_role`, `employee_col`, `store_store_id`, `store_locality_locality_id`, `store_locality_province_province_id`, `delivery_delivery_id`) 
-VALUES ('Alice', 'Brown', 'NIF123', '555-1111', 'Manager', 'cook', 1, 1, 1, 1), 
-       ('Bob', 'White', 'NIF456', '555-2222', 'Delivery', 'delivery_person', 2, 2, 2, 2);
+-- Inserting into `customer`
+INSERT INTO `pizza_shop`.`customer` (`id_customer`, `name`, `surname`, `phone`, `id_address`) VALUES 
+(1, 'Jane', 'Doe', '0987654321', 1);
 
--- Insert data into the category table
-INSERT INTO `pizzeria`.`category` (`category_name`) VALUES ('Drinks'), ('Pizzas');
+-- Inserting into `category`
+INSERT INTO `pizza_shop`.`category` (`id_category`, `name`) VALUES 
+(1, 'Beverages');
 
--- Insert data into the order_product table with unique primary keys
-INSERT INTO `pizzeria`.`order_product` (`order_product_id`, `order_product_quantity`) VALUES (1, '2'), (2, '3');
+-- Inserting into `product`
+INSERT INTO `pizza_shop`.`product` (`id_product`, `name`, `type`, `description`, `image`, `price`, `id_category`) VALUES 
+(1, 'Coca-Cola', 'drink', 'Soft drink', NULL, 1.50, 1);
 
--- Insert data into the product table
-INSERT INTO `pizzeria`.`product` (`product_name`, `product_description`, `product_image`, `product_price`, `category_category_id`, `order_product_order_product_id`) 
-VALUES ('Coke', 'Soft drink', NULL, 1.50, 1, 1), 
-       ('Pepsi', 'Soft drink', NULL, 1.50, 1, 2);
+-- Inserting into `order`
+INSERT INTO `pizza_shop`.`order` (`id_order`, `id_employee`, `id_customer`, `date`, `delivery`, `amount`, `delivery_date`) VALUES 
+(1, 1, 1, '2024-06-10 12:00:00', 'store', 15.00, '2024-06-10 12:30:00');
 
--- Insert data into the order table ensuring unique composite keys
-INSERT INTO `pizzeria`.`order` (`order_date`, `delivery_type`, `order_total_price`, `customer_customer_id`, `customer_locality_locality_id`, `customer_locality_province_province_id`, `store_store_id`, `store_locality_locality_id`, `store_locality_province_province_id`, `order_product_order_product_id`, `delivery_delivery_id`)
-VALUES (NOW(), 'home_delivery', 3.00, 1, 1, 1, 1, 1, 1, 1, 1), 
-       (NOW(), 'store_pickup', 4.50, 2, 2, 2, 2, 2, 2, 2, 2);
+-- Inserting into `order_detail`
+INSERT INTO `pizza_shop`.`order_detail` (`id_detail`, `id_order`, `id_product`, `qty`) VALUES 
+(1, 1, 1, 3);
