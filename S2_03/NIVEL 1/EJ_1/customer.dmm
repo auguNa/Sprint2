@@ -21,7 +21,8 @@
 					"validation": "",
 					"pattern": false,
 					"estimatedSize": "",
-					"any": ""
+					"any": "",
+					"fk": false
 				},
 				{
 					"id": "1f2a1d1c-4c68-4c27-8b02-0f8519716adb",
@@ -53,7 +54,8 @@
 					"validation": "",
 					"pattern": false,
 					"estimatedSize": "",
-					"any": ""
+					"any": "",
+					"fk": false
 				},
 				{
 					"id": "25dcb264-e810-4893-8bb8-3400c3ed7037",
@@ -110,7 +112,7 @@
 					"param": "",
 					"pk": false,
 					"nn": false,
-					"list": false,
+					"list": true,
 					"comment": "",
 					"data": "",
 					"enum": "",
@@ -118,6 +120,57 @@
 					"pattern": false,
 					"estimatedSize": "",
 					"any": ""
+				},
+				{
+					"id": "bc8d0b58-6be7-4778-b488-b4d9a39f87c9",
+					"name": "Address",
+					"datatype": "objectId",
+					"param": "",
+					"pk": false,
+					"nn": false,
+					"list": false,
+					"comment": "",
+					"data": "",
+					"enum": "",
+					"validation": "",
+					"pattern": false,
+					"estimatedSize": "",
+					"any": "",
+					"fk": false
+				},
+				{
+					"id": "b47ab580-4626-4696-9bed-99e831190209",
+					"name": "street",
+					"datatype": "string",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"list": false,
+					"comment": "",
+					"data": "",
+					"enum": "",
+					"validation": "",
+					"pattern": false,
+					"estimatedSize": "",
+					"any": "",
+					"fk": false
+				},
+				{
+					"id": "c1c6c28c-685c-438e-aa6c-e61748df31ab",
+					"name": "object_street",
+					"datatype": "string",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"list": false,
+					"comment": "",
+					"data": "",
+					"enum": "",
+					"validation": "",
+					"pattern": false,
+					"estimatedSize": "",
+					"any": "",
+					"fk": false
 				}
 			],
 			"relations": [],
@@ -131,6 +184,23 @@
 						{
 							"id": "23a239ac-4c28-4127-92b4-9e2461cd76d8",
 							"colid": "2d8b87c5-cc41-41b5-b47f-725202a83d28"
+						}
+					]
+				},
+				{
+					"id": "5ac245b6-eecd-472d-af0e-d90005e28ed0",
+					"isPk": false,
+					"name": "customer_ai_1",
+					"cols": []
+				},
+				{
+					"id": "71d38075-e308-4adb-80ff-33c263b22565",
+					"isPk": false,
+					"name": "customer_ai_2",
+					"cols": [
+						{
+							"id": "1bfea692-a9f3-4bbf-9419-d45f25baa16c",
+							"colid": "591e71f1-10ba-47e0-87ca-534c2e85e09a"
 						}
 					]
 				}
@@ -279,6 +349,17 @@
 					"name": "Primary key",
 					"isPk": true,
 					"cols": []
+				},
+				{
+					"id": "66b77cf8-a212-48b5-bfb0-14d6495762f7",
+					"isPk": false,
+					"name": "object_ai_1",
+					"cols": [
+						{
+							"id": "36c34dac-839b-408c-a84b-f4303244057d",
+							"colid": "b15ec523-814a-4dbd-8f1e-19199625a5d1"
+						}
+					]
 				}
 			],
 			"indexes": [],
@@ -311,7 +392,7 @@
 					"param": "",
 					"pk": false,
 					"nn": false,
-					"list": false,
+					"list": true,
 					"comment": "",
 					"data": "",
 					"enum": "",
@@ -621,7 +702,7 @@
 			"minor": 5,
 			"extra": 1
 		},
-		"writeFileParam": false,
+		"writeFileParam": true,
 		"authorName": "",
 		"companyDetails": "",
 		"companyUrl": "",
@@ -631,7 +712,7 @@
 		"def_collation": "",
 		"def_others": "",
 		"connectionVersion": "",
-		"lastSaved": 1717869049225
+		"lastSaved": 1718642503368
 	},
 	"otherObjects": {},
 	"diagrams": {
@@ -650,8 +731,8 @@
 				"650a6e39-010e-4fa6-b8d3-68a154f912ce": {
 					"referencedItemId": "650a6e39-010e-4fa6-b8d3-68a154f912ce",
 					"x": 45,
-					"y": 30,
-					"gHeight": 460,
+					"y": 32,
+					"gHeight": 496,
 					"gWidth": 243,
 					"color": "#ffffff",
 					"background": "#03a9f4",
